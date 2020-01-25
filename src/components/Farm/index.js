@@ -5,7 +5,7 @@ import Navigation from '../Navigation';
 var money = 0;
 
 function updateLabels() {
-  document.getElementById("money").innerHTML = money;
+  document.getElementById('money').innerHTML = money;
 }
 
 function makeMoney() {
@@ -15,8 +15,17 @@ function makeMoney() {
 
 const Farm = () => (
   <div>
-    Money: <span id="money"></span>
-    <button onclick="makeMoney()">Make Money</button>
+    Money: <span id='money'></span>
+    <a class='btn btn-primary' onClick={makeMoney}>Make Money</a>
   </div>
 );
+
+window.setInterval(function() {
+  try {
+    makeMoney();
+  } catch(err) {
+    //console.log('Uh oh!')
+  }
+}, 1000);
+
 export default Farm;
