@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Navigation from '../Navigation';
 const Farm = () => (
   <div>
-    Hello
+    penis sex
   </div>
 );
 export default Farm;
