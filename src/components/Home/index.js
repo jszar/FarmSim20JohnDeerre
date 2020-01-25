@@ -7,11 +7,30 @@ import * as ROUTES from '../../constants/routes';
 
 const Home = () => (
   <div>
-    Get redy to play
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+  <br/>
+    <div class="row">
+      <div class="col-md-12" align="center">
+        <h1>Oh! That's a Farm Simulator!!</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12" align="center">
+        <a class="btn btn-primary" href={ROUTES.FARM}>Star New Farm</a>
+      </div>
     <br/>
-    <a href={ROUTES.FARM}>Star New Farm</a>
     <br/>
-    <a href={ROUTES.FARM}>Load Save</a>
+    </div>
+    <div class="row">
+      <div class="col-md-12" align="center">
+        <a  class="btn btn-primary" href={ROUTES.FARM}>Load Save</a>
+      </div>
+    </div>
+
+
   </div>
 );
 export default Home;
