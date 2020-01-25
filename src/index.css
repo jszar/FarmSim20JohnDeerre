@@ -25,3 +25,9 @@ code {
   font-size: 30px;
   text-align: center;
 }
+
+.plot {
+  src: url('http://cssgridgarden.com/images/dirt.svg');
+  height: 100%;
+  width: 100%;
+}

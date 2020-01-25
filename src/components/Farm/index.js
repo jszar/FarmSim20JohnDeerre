@@ -18,8 +18,12 @@ function makeMoney() {
 
 const Farm = () => (
   <div style={{'display':'flex','justify-content':'center','align-items':'center','height':'100vh'}}>
+    <div>
+      Money: <span id='money'></span>
+      <a class='btn btn-primary' onClick={makeMoney}>Make Money</a>
+    </div>
     <div class='grid-container'>
-      <div class='grid-item' id='plot-0'>
+      <div class='grid-item' id='plot-0' onClick={makeMoney}>
         <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
       </div>
       <div class='grid-item' id='plot-0'>
