@@ -18,32 +18,82 @@ function makeMoney() {
 
 const Farm = () => (
   <div style={{'display':'flex','justify-content':'center','align-items':'center','height':'100vh'}}>
-    <div class="grid-container">
-      <div class="grid-item">1</div>
-      <div class="grid-item">2</div>
-      <div class="grid-item">3</div>
-      <div class="grid-item">4</div>
-      <div class="grid-item">5</div>
-      <div class="grid-item">6</div>
-      <div class="grid-item">7</div>
-      <div class="grid-item">8</div>
-      <div class="grid-item">9</div>
-      <div class="grid-item">1</div>
-      <div class="grid-item">2</div>
-      <div class="grid-item">3</div>
-      <div class="grid-item">4</div>
-      <div class="grid-item">5</div>
-      <div class="grid-item">6</div>
-      <div class="grid-item">7</div>
-      <div class="grid-item">8</div>
-      <div class="grid-item">9</div>
-      <div class="grid-item">1</div>
-      <div class="grid-item">4</div>
-      <div class="grid-item">5</div>
-      <div class="grid-item">6</div>
-      <div class="grid-item">7</div>
-      <div class="grid-item">8</div>
-      <div class="grid-item">9</div>
+    <div class='grid-container'>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
+      <div class='grid-item' id='plot-0'>
+        <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+      </div>
     </div>
   </div>
 );
