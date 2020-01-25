@@ -17,23 +17,7 @@ function makeMoney() {
 // http://cssgridgarden.com/images/dirt.svg
 
 const Farm = () => (
-
   <div>
-    <div class="row">
-      <div class="col-md-3" >
-        <h1>Morio Cho Acres</h1>
-      </div>
-      <div class="col-md-1">
-        <button class="btn btn-default">Shop</button>
-      </div>
-      <div class="col-md-1">
-        <button class="btn btn-default">Battle</button>
-      </div>
-      <div class="col-md-7" align="right">
-        <h1>this is a test</h1>
-      </div>
-  </div>
-
     <div style={{'display':'flex','justify-content':'center','align-items':'center','height':'100vh'}}>
       <div>
         Money: <span id='money'></span>
