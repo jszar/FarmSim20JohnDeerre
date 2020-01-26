@@ -25,6 +25,8 @@ function emptyCropImg(plotNumber) {
 function addCropImg(plotNumber, cropType) {
   console.log('crud');
   if (cropType == 1) {
+    document.getElementById('plot-' + plotNumber).src = 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngmart.com%2Ffiles%2F5%2FEngine-Transparent-Background.png&f=1&nofb=1';
+  } else if (cropType == 2) {
     document.getElementById('plot-' + plotNumber).src = 'https://www.michelinman.com/dw/image/v2/BCVN_PRD/on/demandware.static/-/Sites-michelin-master-catalog/default/dw70aee093/images/tires/defender-t-h/tire-defender-t-h.png?sw=618&sh=618';
   }
 }
@@ -45,6 +47,8 @@ function plantCrops(cropType, num) {
       break;
     }
     if (plots[i] == 0) {
+      var rect = document.getElementById('plot-' + i).getBoundingClientRect();
+      console.log((rect.top + rect.bottom) / 2, (rect.right + rect.left) / 2);
       addCropImg(i, cropType);
       plots[i] = cropType;
       cnt++;
