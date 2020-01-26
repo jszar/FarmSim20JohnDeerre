@@ -15,7 +15,7 @@ var numWaterTractors = 0
 var numGhostTractors = 0
 var numEnemiesDefeated = 0
 var currentEnemyHealth = 100
-var enemy0 = {health: 100, damage:1, weakness:"fire", resist:"water", photo: "https://vignette.wikia.nocookie.net/cuphead/images/c/c3/Carrot.png/revision/latest?cb=20171028193841"};  //carrot
+var enemy0 = {health: 100, damage:5, weakness:"fire", resist:"water", photo: "https://vignette.wikia.nocookie.net/cuphead/images/c/c3/Carrot.png/revision/latest?cb=20171028193841"};  //carrot
 var enemy1 = {health: 200, damage:7, weakness:"water", resist:"ghost", photo: "https://cdn.drawception.com/images/panels/2015/8-13/SCzWX3j2PY-14.png"}; //cactus
 var enemy2 = {health: 300, damage:5, weakness:"ghost", resist:"fire", photo: "https://ak8.picdn.net/shutterstock/videos/27257848/thumb/1.jpg?ip=x480"};  //dead crop
 var enemy3 = {health: 150, damage:15, weakness:"fire", resist:"water", photo: "https://www.pngkey.com/png/detail/164-1647492_surprising-corn-clipart-for-free-fruit-names-a.png"}; //corn
