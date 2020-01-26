@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import Navigation from '../Navigation';
+import './border.css'
 
 var money = 0;
 
@@ -35,10 +36,32 @@ const Farm = () => (
       </div>
       {/*RIGHT BAR*/}
       <div class='col-md-3' style={{'height': '100vh', 'background-color': 'green'}}>
-        <div style={{'display':'flex','justify-content':'center','align-items':'center','height':'100%'}}>
-          <div class='row'>
-            <div class='btn btn-primary'>asdf</div>
-            <div class='btn btn-primary'>asdf</div>
+        <div class='row' class="round2">
+            <p id="gold">Gold:</p>
+            <p id="level">Level:</p>
+            <p id="engine">Engines:</p>
+            <p id="tire">Tires:</p>
+            <p id="steearing">Steering mechanism:</p>
+            <p id="gears">Transmission gears:</p>
+            <p id="hchs">Hyrdraulic control and hitch system:</p>
+            <p id="fire">Fire:</p>
+            <p id="water">Water:</p>
+            <p id="grass">Grass:</p>
+        </div>
+        <div class='row'>
+          <div class='col-md-5'>
+            <div class='btn btn-primary'>Shop</div>
+          </div>
+          <div class='col-md-5'>
+            <div class='btn btn-primary'>Battle</div>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-md-5'>
+            <div class='btn btn-primary'>Shop</div>
+          </div>
+          <div class='col-md-5'>
+            <div class='btn btn-primary'>Battle</div>
           </div>
         </div>
       </div>
