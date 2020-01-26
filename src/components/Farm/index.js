@@ -384,25 +384,25 @@ const Farm = () => (
           <br></br>
           <span style={{'font-size': '20px'}}>Current stock: </span>
           <br></br>
-          <span>Flaming Tractor: </span><span id='fireDisp'>0</span>
+          <span>Fire Tractor: </span><span id='fireDisp'>0</span>
           <br></br>
-          <span>Wet Tractor: </span><span id='waterDisp'>0</span>
+          <span>Water Tractor: </span><span id='waterDisp'>0</span>
           <br></br>
-          <span>Deadly Tractor: </span><span id='ghostDisp'>0</span>
+          <span>Ghost Tractor: </span><span id='ghostDisp'>0</span>
           <br></br>
           <span style={{'font-size': '20px'}}>Choose your type: </span>
           <br></br>
           <div style={{'width': '100%', 'text-align': 'center', 'margin': 'auto'}}>
             <div class='btn btn-primary' onClick={() => buildTractor(0)}>
-              Flaming
+              Fire
             </div>
             &nbsp;
             <div class='btn btn-primary' onClick={() => buildTractor(1)}>
-              Wet
+              Water
             </div>
             &nbsp;
             <div class='btn btn-primary' onClick={() => buildTractor(2)}>
-              Deadly
+              Ghost
             </div>
           </div>
         </div>
@@ -475,7 +475,7 @@ const Farm = () => (
         <div align="center">
           <Popup
             trigger={<button id="battleSim" class="btn btn-success btn-lg">Battle!</button>} modal>
-          <div>
+            <div>
             <div id="Fight">
               <div class="row">
                 <div class="col-md-6">
@@ -515,7 +515,7 @@ const Farm = () => (
             {(() => {
               return("")})()}
           </div>
-          </Popup>)
+          </Popup>
         </div>
       </div>
     </div>
