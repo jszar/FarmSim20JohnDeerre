@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Navigation from '../Navigation';
 import Popup from "reactjs-popup";
 
-var growth_stage = 0;
 var money = 100;
 var plots = Array(25).fill(0);
+var growing = Array(25).fill(0);
 var resources = Array(6).fill(0);
 
 function updateLabel(label, value) {
@@ -20,6 +20,10 @@ function makeMoney() {
 
 function emptyCropImg(plotNumber) {
   document.getElementById('plot-' + plotNumber).src = 'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+}
+
+function addGrowImg(plotNumber) {
+  document.getElementById('plot-' + plotNumber).src = 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.bcncc.ca%2Fwp-content%2Fuploads%2F2013%2F09%2Fplant.png&f=1&nofb=1';
 }
 
 function addCropImg(plotNumber, cropType) {
@@ -38,7 +42,7 @@ function addCropImg(plotNumber, cropType) {
 }
 
 function harvestCrop(plotIndex) {
-  if (plots[plotIndex] !=0) {
+  if (plots[plotIndex] !=0 && growing[plotIndex] == 0) {
     emptyCropImg(plotIndex);
     resources[plots[plotIndex]]++;
     plots[plotIndex] = 0;
@@ -53,10 +57,9 @@ function plantCrops(cropType, num) {
       break;
     }
     if (plots[i] == 0 && money > 0) {
-      var rect = document.getElementById('plot-' + i).getBoundingClientRect();
-      console.log((rect.top + rect.bottom) / 2, (rect.right + rect.left) / 2);
-      addCropImg(i, cropType);
+      addGrowImg(i);
       plots[i] = cropType;
+      growing[i] = 1;
       money--;
       updateLabel('money', money);
       cnt++;
@@ -311,14 +314,9 @@ const Farm = () => (
 */
 
 window.setInterval(function() {
-  growth_stage++;
-  if (growth_stage == 5) {
-    try {
-    } catch(err) {
-      //console.log('Uh oh!')
-    }
-  } else {
-  }
+  var i = Math.floor((Math.random() * 24) + 1);
+  addCropImg(i, plots[i]);
+  growing[i] = 0;
 }, 1000);
 
 export default Farm;
