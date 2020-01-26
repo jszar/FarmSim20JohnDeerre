@@ -10,16 +10,16 @@ var plots = Array(25).fill(0);
 var growing = Array(25).fill(0);
 var resources = Array(6).fill(0);
 var playerHealth = 100
-var numFireTractors = 100
-var numWaterTractors = 100
-var numGhostTractors = 100
+var numFireTractors = 0
+var numWaterTractors = 0
+var numGhostTractors = 0
 var numEnemiesDefeated = 0
 var currentEnemyHealth = 100
-var enemy0 = {health: 100, damage:1, weakness:"fire", resist:"water", photo: ""};  //carrot
-var enemy1 = {health: 200, damage:7, weakness:"water", resist:"ghost", photo: ""}; //cactus
-var enemy2 = {health: 300, damage:5, weakness:"ghost", resist:"fire", photo: ""};  //dead crop
-var enemy3 = {health: 150, damage:15, weakness:"fire", resist:"water", photo: ""}; //corn
-var johnDeere = {health: 250, damage:15, weakness:"none", resist:"all", photo: ""}; //johnDeere himself
+var enemy0 = {health: 100, damage:1, weakness:"fire", resist:"water", photo: "https://vignette.wikia.nocookie.net/cuphead/images/c/c3/Carrot.png/revision/latest?cb=20171028193841"};  //carrot
+var enemy1 = {health: 200, damage:7, weakness:"water", resist:"ghost", photo: "https://cdn.drawception.com/images/panels/2015/8-13/SCzWX3j2PY-14.png"}; //cactus
+var enemy2 = {health: 300, damage:5, weakness:"ghost", resist:"fire", photo: "https://ak8.picdn.net/shutterstock/videos/27257848/thumb/1.jpg?ip=x480"};  //dead crop
+var enemy3 = {health: 150, damage:15, weakness:"fire", resist:"water", photo: "https://www.pngkey.com/png/detail/164-1647492_surprising-corn-clipart-for-free-fruit-names-a.png"}; //corn
+var johnDeere = {health: 250, damage:15, weakness:"none", resist:"all", photo: "https://i.pinimg.com/originals/d5/d0/d3/d5d0d3b90166140362ec69c732cabebf.jpg"}; //johnDeere himself
 var enemyArray = [enemy0, enemy1, enemy2, enemy3, johnDeere];
 
 
@@ -28,26 +28,36 @@ function updateLabel(label, value) {
 }
 
 function startBattle(){
-  console.log("here");
+  console.log("yeyyeyyeyeyeyeyeyeyyeyeyeyeyeyeye");
       playerHealth = 100
       //currentEnemyHealth = enemyArray[numEnemiesDefeated].health
       //document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
 }
 
 function updateTractor(){
+  console.log("at update");
   var at = document.getElementById("attackType").value
   if (at === "default"){
-    document.getElementById("attackType").innerHTML = ""
+    document.getElementById("numTractors").innerHTML = ""
+    document.getElementById("photoTractor").src = "https://www.pngkey.com/png/full/154-1548239_minecraft-diamond-hoe.png"
   }
   else if (at === "fire") {
-    document.getElementById("attackType").innerHTML = "Number of Tractors " + numFireTractors
+    document.getElementById("numTractors").innerHTML = "Number of Tractors " + numFireTractors
+    document.getElementById("photoTractor").src = "https://www.ake.com/pub/media/mageplaza/blog/post/t/r/tractor_fire.jpg"
   }
   else if (at === "water") {
-    document.getElementById("attackType").innerHTML = "Number of Tractors " + numWaterTractors
+    document.getElementById("numTractors").innerHTML = "Number of Tractors " + numWaterTractors
+    document.getElementById("photoTractor").src = "https://i2-prod.devonlive.com/incoming/article1539746.ece/ALTERNATES/s615/tractor.jpg"
   }
   else if (at === "ghost") {
-    document.getElementById("attackType").innerHTML = "Number of Tractors " + numGhostTractors
+    document.getElementById("numTractors").innerHTML = "Number of Tractors " + numGhostTractors
+    document.getElementById("photoTractor").src = "https://i.pinimg.com/236x/25/0b/b4/250bb4cb3d746c7ef4cc517383311ee9--tractors-farms.jpg"
   }
+}
+
+function nextHealth(){
+  console.log("ehrlkekhrlk;ehrlkekhr");
+  document.getElementById("enemyHealth").innerHTML = "Health: " + enemyArray[numEnemiesDefeated].health
 }
 
 function attack(attackType) {
@@ -56,23 +66,79 @@ function attack(attackType) {
       document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
     }
     else if (attackType === "fire") {
-
+      if(numFireTractors <= 0){
+        return
+      }
+      if(enemyArray[numEnemiesDefeated].weakness === "fire"){
+        currentEnemyHealth -= 20
+        document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
+      }
+      else if (enemyArray[numEnemiesDefeated].resist === "fire") {
+        currentEnemyHealth -= 5
+        document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
+      }
+      else {
+        currentEnemyHealth -= 10
+        document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
+      }
+      numFireTractors--
+      updateTractors()
+      document.getElementById("numTractors").innerHTML = "Number of Tractors " + numFireTractors
     }
     else if (attackType === "water") {
-
+      if(numWaterTractors <= 0){
+        return
+      }
+      if(enemyArray[numEnemiesDefeated].weakness === "water"){
+        currentEnemyHealth -= 20
+        document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
+      }
+      else if (enemyArray[numEnemiesDefeated].resist === "water") {
+        currentEnemyHealth -= 5
+        document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
+      }
+      else {
+        currentEnemyHealth -= 10
+        document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
+      }
+      numWaterTractors--
+      updateTractors()
+      document.getElementById("numTractors").innerHTML = "Number of Tractors " + numWaterTractors
     }
     else if (attackType === "ghost") {
-
+      if(numGhostTractors <= 0){
+        return
+      }
+      if(enemyArray[numEnemiesDefeated].weakness === "ghost"){
+        currentEnemyHealth -= 20
+        document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
+      }
+      else if (enemyArray[numEnemiesDefeated].resist === "ghost") {
+        currentEnemyHealth -= 5
+        document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
+      }
+      else {
+        currentEnemyHealth -= 10
+        document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
+      }
+      numGhostTractors--
+      updateTractors()
+      document.getElementById("numTractors").innerHTML = "Number of Tractors " + numGhostTractors
     }
-
+    document.getElementById("enemyPicture").src = enemyArray[numEnemiesDefeated].photo
 
     if (currentEnemyHealth <= 0){
       document.getElementById("Fight").hidden = true
       document.getElementById("win").hidden = false
       playerHealth = 100
       numEnemiesDefeated++
+      if(numEnemiesDefeated === 5){
+        numEnemiesDefeated = 0
+      }
       currentEnemyHealth = enemyArray[numEnemiesDefeated].health
       document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
+      money += 100
+      updateLabel('money', money);
       return
       //you win
       //reset
@@ -405,21 +471,21 @@ const Farm = () => (
             <span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => plantCrops(5, 1)}>Buy x1</span>
           </div>
         </div>
+        <br/>
+        <div align="center">
           <Popup
-            trigger={<button id="battleSim" class="btn btn-primary">Battle!</button>}
-            modal
-          >
+            trigger={<button id="battleSim" class="btn btn-success btn-lg">Battle!</button>} modal>
           <div>
             <div id="Fight">
               <div class="row">
                 <div class="col-md-6">
                     <p id="playerHealth">Health: 100</p>
-                    <img src="https://www.ake.com/pub/media/mageplaza/blog/post/t/r/tractor_fire.jpg"></img>
+                    <img id="photoTractor" src="https://www.pngkey.com/png/full/154-1548239_minecraft-diamond-hoe.png" width="400" height="400"></img>
                     <br/>
                     <br/>
                     <div class="row">
                       <div class="col-md-4">
-                        <select id="attackType" onChange="updateTractor">
+                        <select id="attackType" onChange={() => updateTractor()}>
                           <option value="default">Stick Attack</option>
                           <option value="fire">Fire Tractor</option>
                           <option value="water">Water Tractor</option>
@@ -435,12 +501,8 @@ const Farm = () => (
                     </div>
                 </div>
                 <div class="col-md-6">
-                  <p id="enemyHealth">Health: {(() => {
-
-                    return(
-                    enemyArray[numEnemiesDefeated].health
-                  )})()}</p>
-                  <img id = "enemyPicture" src="https://vignette.wikia.nocookie.net/cuphead/images/c/c3/Carrot.png/revision/latest?cb=20171028193841"></img>
+                  <p id="enemyHealth">Health: ???</p>
+                  <img id = "enemyPicture" src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Question_mark_alternate.svg" width="400" height="400"></img>
                 </div>
               </div>
             </div>
@@ -453,7 +515,8 @@ const Farm = () => (
             {(() => {
               return("")})()}
           </div>
-          </Popup>
+          </Popup>)
+        </div>
       </div>
     </div>
   </div>
