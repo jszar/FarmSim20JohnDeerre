@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import Navigation from '../Navigation';
+import Popup from "reactjs-popup";
 
 var money
 var plots = Array(25).fill(0);
@@ -66,10 +67,20 @@ const Farm = () => (
         </div>
         <div class='row'>
           <div class='col-md-5'>
-            <div class='btn btn-primary'>Shop</div>
+            <button class='btn btn-primary'>Shop</button>
           </div>
           <div class='col-md-5'>
-            <div class='btn btn-primary'>Battle</div>
+          <Popup trigger={<button class='btn btn-primary'>Battle</button>} position="top left">
+          {close => (
+            <div>
+              Content here
+              <a className="close" onClick={close}>
+                &times;
+              </a>
+            </div>
+          )}
+          </Popup>
+
           </div>
         </div>
       </div>
