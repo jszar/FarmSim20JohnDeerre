@@ -220,6 +220,44 @@ const Farm = () => (
             <span class='btn btn-primary btn-sm' style={{'float':'right'}}>Buy x1</span>
           </div>
         </div>
+          <Popup
+            trigger={<button className="button"> Open Modal </button>}
+            modal
+            closeOnDocumentClick
+          >
+          <div>
+            <div class="row">
+              <div class="col-md-6">
+                  <p>Health: 100</p>
+                  <img src="https://www.ake.com/pub/media/mageplaza/blog/post/t/r/tractor_fire.jpg"></img>
+                  <br/>
+                  <br/>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <select>
+                        <option value="default">Stick Attack</option>
+                        <option value="fire">Fire Tractor</option>
+                        <option value="water">Water Tractor</option>
+                        <option value="ghost">Ghost Tractor</option>
+                      </select>
+                    </div>
+                    <div class="col-md-4">
+                      <p>Number of blank tractors: 40</p>
+                    </div>
+                    <div class="col-md-4">
+                      <button class="btn btn-danger">Attack!</button>
+                    </div>
+                  </div>
+                  <br/>
+                  <button class="btn btn-warning">Run!</button>
+              </div>
+              <div class="col-md-6">
+                <p>Health: 100</p>
+                <img src="https://vignette.wikia.nocookie.net/cuphead/images/c/c3/Carrot.png/revision/latest?cb=20171028193841"></img>
+              </div>
+            </div>
+          </div>
+          </Popup>
       </div>
     </div>
   </div>
