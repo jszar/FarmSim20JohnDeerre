@@ -138,31 +138,26 @@ const Farm = () => (
     {/*RIGHT BAR*/}
     <div class='row'>
       <div class='col-md-9'></div>
-      <div class='col-md-3' style={{'background-color': 'green'}}>
-        <div class='row'>
-          <div class='badge'>Money: <span id='money'>0</span></div>
-          <br></br>
-          <div class='badge'>Engines: <span id='engines'>0</span></div>
-          <br></br>
-          <div class='badge'>Tires: <span id='tires'>0</span></div>
-          <br></br>
-          <div class='badge'>Steering Mechanisms: <span id='steering'>0</span></div>
-          <br></br>
-          <div class='badge'>Transmission Gears: <span id='gears'>0</span></div>
-          <br></br>
-          <div class='badge'>Hydraulic Systems: <span id='systems'>0</span></div>
+      <div class='col-md-3' style={{'padding': '10px'}}>
+        <div style={{'padding': '10px', 'box-shadow': '0 0 5px black', 'background-color': 'green', 'width': '90%', 'border-radius': '8px'}}>
+          <span>Money: </span><span id='money'>0</span>
         </div>
-        <div class='row'>
-          <div class='col-md-5'>
-            <div class='btn btn-primary'>Shop</div>
+        <br></br>
+        <div style={{'padding': '10px', 'box-shadow': '0 0 5px black', 'background-color': 'grey', 'width': '90%', 'border-radius': '8px'}}>
+          <div style={{'padding-bottom': '5px'}}>
+            <span>Engines: </span><span id='engines'>0</span><span class='btn btn-primary btn-sm' style={{'float':'right'}}>Sell</span>
           </div>
-          <div class='col-md-5'>
-            <div class='btn btn-primary'>Battle</div>
+          <div style={{'padding-bottom': '5px'}}>
+            <span>Tires: </span><span id='tires'>0</span><span class='btn btn-primary btn-sm' style={{'float':'right'}}>Sell</span>
           </div>
-        </div>
-        <div class='row'>
-          <div class='col-md-5'>
-            <button class='btn btn-primary'>Shop</button>
+          <div style={{'padding-bottom': '5px'}}>
+            <span>Steering Mechanisms: </span><span id='steering'>0</span><span class='btn btn-primary btn-sm' style={{'float':'right'}}>Sell</span>
+          </div>
+          <div style={{'padding-bottom': '5px'}}>
+            <span>Transmission Gears: </span><span id='gears'>0</span><span class='btn btn-primary btn-sm' style={{'float':'right'}}>Sell</span>
+          </div>
+          <div style={{'padding-bottom': '5px'}}>
+            <span>Hydraulic Systems: </span><span id='systems'>0</span><span class='btn btn-primary btn-sm' style={{'float':'right'}}>Sell</span>
           </div>
         </div>
       </div>
