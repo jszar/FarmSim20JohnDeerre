@@ -5,7 +5,7 @@ import Navigation from '../Navigation';
 import Popup from "reactjs-popup";
 
 var growth_stage = 0;
-var money = 0;
+var money = 100;
 var plots = Array(25).fill(0);
 var resources = Array(6).fill(0);
 
@@ -52,11 +52,13 @@ function plantCrops(cropType, num) {
     if (cnt == num) {
       break;
     }
-    if (plots[i] == 0) {
+    if (plots[i] == 0 && money > 0) {
       var rect = document.getElementById('plot-' + i).getBoundingClientRect();
       console.log((rect.top + rect.bottom) / 2, (rect.right + rect.left) / 2);
       addCropImg(i, cropType);
       plots[i] = cropType;
+      money--;
+      updateLabel('money', money);
       cnt++;
     }
   }
@@ -72,7 +74,7 @@ function updateResources() {
 
 function sellResource(cropType) {
   console.log(money);
-  money += resources[cropType];
+  money += 2 * resources[cropType];
   updateLabel('money', money);
   resources[cropType] = 0;
   updateResources();
@@ -83,6 +85,7 @@ function sellResource(cropType) {
 const Farm = () => (
   <div>
     {/*background*/}
+    <img src={'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fi0.wp.com%2Ffreepngimages.com%2Fwp-content%2Fuploads%2F2015%2F10%2Fdavid-brown-50d-tractor.png%3Ffit%3D619%252C413&f=1&nofb=1'} style={{'position': 'absolute', 'left': '-150px', 'top': '70vh', 'z-index': '2', 'transform': 'rotate(-30deg)'}}></img>
     <div class='backpic' style={{'width': '100vw', 'height': '100vh', 'position': 'absolute'}}>
       <div style={{'display':'flex','justify-content':'center','align-items':'center','height':'100%'}}>
         <div class='grid-container'>
@@ -194,7 +197,7 @@ const Farm = () => (
       <div class='col-md-9'></div>
       <div class='col-md-3' style={{'padding': '10px'}}>
         <div style={{'padding': '10px', 'box-shadow': '0 0 5px black', 'background-color': 'green', 'width': '90%', 'border-radius': '8px'}}>
-          <span>Money: </span><span id='money'>0</span>
+          <span>Money: </span><span id='money'>100</span>
         </div>
         <br></br>
         <div style={{'padding': '10px', 'box-shadow': '0 0 5px black', 'background-color': 'grey', 'width': '90%', 'border-radius': '8px'}}>
@@ -307,21 +310,15 @@ const Farm = () => (
 </div>
 */
 
-/*
 window.setInterval(function() {
   growth_stage++;
   if (growth_stage == 5) {
-    growth_stage = 0;
     try {
-      updateResources();
     } catch(err) {
       //console.log('Uh oh!')
     }
-    //show plus 1
   } else {
-    //remove plus 1
   }
 }, 1000);
-*/
 
 export default Farm;
