@@ -18,7 +18,7 @@ function makeMoney() {
 }
 
 function displayCrop(plotIndex) {
-  
+
 }
 
 function updateResources() {
@@ -46,7 +46,6 @@ const Farm = () => (
       <div class='col-md-3' style={{'height': '100vh', 'background-color': 'green'}}>
         <div class='row' class="round2">
             <p id="gold">Gold:</p>
-            <p id="level">Level:</p>
             <p id="engine">Engines:</p>
             <p id="tire">Tires:</p>
             <p id="steearing">Steering mechanism:</p>
