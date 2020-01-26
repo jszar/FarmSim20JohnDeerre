@@ -24,6 +24,11 @@ function updateResources() {
   for (const plot in plots) {
     resources[plot]++;
   }
+  updateLabel('engines', resources[1])
+  updateLabel('tires', resources[2])
+  updateLabel('steering', resources[3])
+  updateLabel('gears', resources[4])
+  updateLabel('systems', resources[5])
 }
 
 // http://cssgridgarden.com/images/dirt.svg
