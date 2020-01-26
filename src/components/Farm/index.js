@@ -3,7 +3,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import Navigation from '../Navigation';
 
-var money = 0;
+var money
+var plots = Array(25).fill(0);
+var resources = Array(6).fill(0);
 
 function updateLabel(label, value) {
   document.getElementById(label).innerHTML = value;
@@ -14,8 +16,14 @@ function makeMoney() {
   updateLabel('money', money);
 }
 
-function updateCrop() {
+function displayCrop(plotIndex) {
+  
+}
 
+function updateResources() {
+  for (const plot in plots) {
+    resources[plot]++;
+  }
 }
 
 // http://cssgridgarden.com/images/dirt.svg
@@ -27,7 +35,7 @@ const Farm = () => (
       <div class='col-md-9' style={{'height': '100vh', 'background-color': 'red'}}>
         <div style={{'display':'flex','justify-content':'center','align-items':'center','height':'100%'}}>
           <div class='grid-container'>
-            <div class='grid-item' id='plot-0' onClick={updateCrop}>
+            <div class='grid-item' id='plot-0' onClick={displayCrop(0)}>
               <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
             </div>
           </div>
@@ -57,7 +65,7 @@ const Farm = () => (
 
 window.setInterval(function() {
   try {
-    makeMoney();
+    updateResources();
   } catch(err) {
     //console.log('Uh oh!')
   }
