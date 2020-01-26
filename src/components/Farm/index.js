@@ -3,7 +3,8 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import Navigation from '../Navigation';
 
-var money
+var growth_stage = 0;
+var money = 0;
 var plots = Array(25).fill(0);
 var resources = Array(6).fill(0);
 
@@ -48,7 +49,7 @@ const Farm = () => (
       </div>
       {/*RIGHT BAR*/}
       <div class='col-md-3' style={{'height': '100vh', 'background-color': 'green'}}>
-      <div class='row' class='round2'>
+        <div class='row round2'>
           <p>Money: <span id='money'>0</span></p>
           <p>Engines: <span id='engines'>0</span></p>
           <p>Tires: <span id='tires'>0</span></p>
@@ -87,10 +88,17 @@ const Farm = () => (
 */
 
 window.setInterval(function() {
-  try {
-    updateResources();
-  } catch(err) {
-    //console.log('Uh oh!')
+  growth_stage++;
+  if (growth_stage == 5) {
+    growth_stage = 0;
+    try {
+      updateResources();
+    } catch(err) {
+      //console.log('Uh oh!')
+    }
+    //show plus 1
+  } else {
+    //remove plus 1
   }
 }, 1000);
 
