@@ -19,7 +19,7 @@ function makeMoney() {
 }
 
 function emptyCropImg(plotNumber) {
-  document.getElementById('plot-' + plotNumber).src = 'http://cssgridgarden.com/images/dirt.svg';
+  document.getElementById('plot-' + plotNumber).src = 'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
 }
 
 function addCropImg(plotNumber, cropType) {
@@ -28,6 +28,12 @@ function addCropImg(plotNumber, cropType) {
     document.getElementById('plot-' + plotNumber).src = 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngmart.com%2Ffiles%2F5%2FEngine-Transparent-Background.png&f=1&nofb=1';
   } else if (cropType == 2) {
     document.getElementById('plot-' + plotNumber).src = 'https://www.michelinman.com/dw/image/v2/BCVN_PRD/on/demandware.static/-/Sites-michelin-master-catalog/default/dw70aee093/images/tires/defender-t-h/tire-defender-t-h.png?sw=618&sh=618';
+  } else if (cropType == 3) {
+    document.getElementById('plot-' + plotNumber).src = 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fpngimg.com%2Fuploads%2Fsteering_wheel%2Fsteering_wheel_PNG16691.png&f=1&nofb=1';
+  } else if (cropType == 4) {
+    document.getElementById('plot-' + plotNumber).src = 'https://detroit.azureedge.net/media/1273/dd5_01-1000x1000-transparent.png';
+  } else if (cropType == 5) {
+    document.getElementById('plot-' + plotNumber).src = 'http://orsettindia.com/wp-content/uploads/2016/03/WH21-Series.png';
   }
 }
 
@@ -81,79 +87,104 @@ const Farm = () => (
       <div style={{'display':'flex','justify-content':'center','align-items':'center','height':'100%'}}>
         <div class='grid-container'>
           <div class='grid-item' onClick={() => harvestCrop(0)}>
-            <img id='plot-0' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-0' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(1)}>
-            <img id='plot-1' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-1' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(2)}>
-            <img id='plot-2' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-2' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(3)}>
-            <img id='plot-3' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-3' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(4)}>
-            <img id='plot-4' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-4' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(5)}>
-            <img id='plot-5' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-5' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(6)}>
-            <img id='plot-6' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-6' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(7)}>
-            <img id='plot-7' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-7' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(8)}>
-            <img id='plot-8' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-8' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(9)}>
-            <img id='plot-9' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-9' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(10)}>
-            <img id='plot-10' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-10' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(11)}>
-            <img id='plot-11' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-11' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(12)}>
-            <img id='plot-12' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-12' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(13)}>
-            <img id='plot-13' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-13' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(14)}>
-            <img id='plot-14' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-14' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(15)}>
-            <img id='plot-15' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-15' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(16)}>
-            <img id='plot-16' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-16' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(17)}>
-            <img id='plot-17' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-17' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(18)}>
-            <img id='plot-18' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-18' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(19)}>
-            <img id='plot-19' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-19' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(20)}>
-            <img id='plot-20' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-20' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(21)}>
-            <img id='plot-21' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-21' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(22)}>
-            <img id='plot-22' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-22' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(23)}>
-            <img id='plot-23' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-23' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
           <div class='grid-item' onClick={() => harvestCrop(24)}>
-            <img id='plot-24' src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
+            <img id='plot-24' src={'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='} style={{'height':'90px', 'width':'90px', 'position':'absolute'}}></img>
+            <img src={'http://cssgridgarden.com/images/dirt.svg'} style={{'height': '100%', 'width': '100%'}}></img>
           </div>
         </div>
       </div>
@@ -181,7 +212,7 @@ const Farm = () => (
             <span>Steering Mechanisms: </span><span id='steering'>0</span><span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => sellResource(3)}>Sell</span>
           </div>
           <div style={{'padding-bottom': '5px'}}>
-            <span>Transmission Gears: </span><span id='gears'>0</span><span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => sellResource(4)}>Sell</span>
+            <span>Transmissions: </span><span id='gears'>0</span><span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => sellResource(4)}>Sell</span>
           </div>
           <div style={{'padding-bottom': '5px'}}>
             <span>Hydraulic Systems: </span><span id='systems'>0</span><span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => sellResource(5)}>Sell</span>
@@ -201,27 +232,27 @@ const Farm = () => (
           </div>
           <div style={{'padding-bottom': '5px'}}>
             <span>Tire</span>
-            <span class='btn btn-primary btn-sm' style={{'float':'right'}}>x10</span>
-            <span class='btn btn-primary btn-sm' style={{'float':'right'}}>x5</span>
-            <span class='btn btn-primary btn-sm' style={{'float':'right'}}>Buy x1</span>
+            <span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => plantCrops(2, 10)}>x10</span>
+            <span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => plantCrops(2, 5)}>x5</span>
+            <span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => plantCrops(2, 1)}>Buy x1</span>
           </div>
           <div style={{'padding-bottom': '5px'}}>
             <span>Steering Mechanism</span>
-            <span class='btn btn-primary btn-sm' style={{'float':'right'}}>x10</span>
-            <span class='btn btn-primary btn-sm' style={{'float':'right'}}>x5</span>
-            <span class='btn btn-primary btn-sm' style={{'float':'right'}}>Buy x1</span>
+            <span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => plantCrops(3, 10)}>x10</span>
+            <span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => plantCrops(3, 5)}>x5</span>
+            <span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => plantCrops(3, 1)}>Buy x1</span>
           </div>
           <div style={{'padding-bottom': '5px'}}>
-            <span>Transmission Gear</span>
-            <span class='btn btn-primary btn-sm' style={{'float':'right'}}>x10</span>
-            <span class='btn btn-primary btn-sm' style={{'float':'right'}}>x5</span>
-            <span class='btn btn-primary btn-sm' style={{'float':'right'}}>Buy x1</span>
+            <span>Transmission</span>
+            <span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => plantCrops(4, 10)}>x10</span>
+            <span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => plantCrops(4, 5)}>x5</span>
+            <span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => plantCrops(4, 1)}>Buy x1</span>
           </div>
           <div style={{'padding-bottom': '5px'}}>
             <span>Hydraulic System</span>
-            <span class='btn btn-primary btn-sm' style={{'float':'right'}}>x10</span>
-            <span class='btn btn-primary btn-sm' style={{'float':'right'}}>x5</span>
-            <span class='btn btn-primary btn-sm' style={{'float':'right'}}>Buy x1</span>
+            <span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => plantCrops(5, 10)}>x10</span>
+            <span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => plantCrops(5, 5)}>x5</span>
+            <span class='btn btn-primary btn-sm' style={{'float':'right'}} onClick={() => plantCrops(5, 1)}>Buy x1</span>
           </div>
         </div>
           <Popup
