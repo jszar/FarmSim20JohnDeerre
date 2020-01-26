@@ -5,9 +5,9 @@ import Navigation from '../Navigation';
 import Popup from "reactjs-popup";
 import './oof.css'
 
-var growth_stage = 0;
 var money = 100;
 var plots = Array(25).fill(0);
+var growing = Array(25).fill(0);
 var resources = Array(6).fill(0);
 var playerHealth = 100
 var numFireTractors = 100
@@ -20,7 +20,7 @@ var enemy1 = {health: 200, damage:7, weakness:"water", resist:"ghost", photo: ""
 var enemy2 = {health: 300, damage:5, weakness:"ghost", resist:"fire", photo: ""};  //dead crop
 var enemy3 = {health: 150, damage:15, weakness:"fire", resist:"water", photo: ""}; //corn
 var johnDeere = {health: 250, damage:15, weakness:"none", resist:"all", photo: ""}; //johnDeere himself
-var enemyArray = [enemy0, enemy1, enemy2, enemy3, johnDeere]
+var enemyArray = [enemy0, enemy1, enemy2, enemy3, johnDeere];
 
 
 function updateLabel(label, value) {
@@ -93,6 +93,12 @@ function attack(attackType) {
 
 function emptyCropImg(plotNumber) {
   document.getElementById('plot-' + plotNumber).src = 'data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==';
+  document.getElementById('plot-' + plotNumber).classList.remove('spin');
+}
+
+function addGrowImg(plotNumber) {
+  document.getElementById('plot-' + plotNumber).src = 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.bcncc.ca%2Fwp-content%2Fuploads%2F2013%2F09%2Fplant.png&f=1&nofb=1';
+  document.getElementById('plot-' + plotNumber).classList.remove('spin');
 }
 
 function addCropImg(plotNumber, cropType) {
@@ -108,10 +114,11 @@ function addCropImg(plotNumber, cropType) {
   } else if (cropType == 5) {
     document.getElementById('plot-' + plotNumber).src = 'http://orsettindia.com/wp-content/uploads/2016/03/WH21-Series.png';
   }
+  document.getElementById('plot-' + plotNumber).classList.add('spin');
 }
 
 function harvestCrop(plotIndex) {
-  if (plots[plotIndex] !=0) {
+  if (plots[plotIndex] !=0 && growing[plotIndex] == 0) {
     emptyCropImg(plotIndex);
     resources[plots[plotIndex]]++;
     plots[plotIndex] = 0;
@@ -126,10 +133,9 @@ function plantCrops(cropType, num) {
       break;
     }
     if (plots[i] == 0 && money > 0) {
-      var rect = document.getElementById('plot-' + i).getBoundingClientRect();
-      console.log((rect.top + rect.bottom) / 2, (rect.right + rect.left) / 2);
-      addCropImg(i, cropType);
+      addGrowImg(i);
       plots[i] = cropType;
+      growing[i] = 1;
       money--;
       updateLabel('money', money);
       cnt++;
@@ -151,6 +157,31 @@ function sellResource(cropType) {
   updateLabel('money', money);
   resources[cropType] = 0;
   updateResources();
+}
+
+function buildTractor(tractorType) {
+  if (resources[1] > 0 && resources[2] > 3 && resources[3] > 0 && resources[4] > 0 && resources[5] > 0) {
+    resources[1]--;
+    resources[2] -= 4;
+    resources[3]--;
+    resources[4]--;
+    resources[5]--;
+    if (tractorType == 0) {
+      numFireTractors++;
+    } else if (tractorType == 1) {
+      numWaterTractors++;
+    } else if (tractorType == 2) {
+      numGhostTractors++;
+    }
+    updateTractors();
+    updateResources();
+  }
+}
+
+function updateTractors() {
+  updateLabel('fireDisp', numFireTractors);
+  updateLabel('waterDisp', numWaterTractors);
+  updateLabel('ghostDisp', numGhostTractors);
 }
 
 // http://cssgridgarden.com/images/dirt.svg
@@ -267,7 +298,50 @@ const Farm = () => (
     </div>
     {/*RIGHT BAR*/}
     <div class='row'>
-      <div class='col-md-9'></div>
+      <div class='col-md-3' style={{'padding': '10px'}}>
+        <div style={{'padding': '10px', 'box-shadow': '0 0 5px black', 'background-color': 'firebrick', 'width': '90%', 'left': '30px', 'border-radius': '8px', 'position': 'relative'}}>
+          <div style={{'padding': '10px', 'box-shadow': '0 0 5px black', 'background-color': 'crimson', 'width': '100%', 'border-radius': '8px', 'text-align': 'center', 'margin': 'auto'}}>
+            Build Tractors
+          </div>
+          <br></br>
+          <span style={{'font-size': '20px'}}>Requires: </span>
+          <br></br>
+          <span>Engine: </span><span>1</span>
+          <br></br>
+          <span>Tires: </span><span>4</span>
+          <br></br>
+          <span>Steering Mechanism: </span><span>1</span>
+          <br></br>
+          <span>Transmission: </span><span>1</span>
+          <br></br>
+          <span>Hydraulic System: </span><span>1</span>
+          <br></br>
+          <span style={{'font-size': '20px'}}>Current stock: </span>
+          <br></br>
+          <span>Flaming Tractor: </span><span id='fireDisp'>0</span>
+          <br></br>
+          <span>Wet Tractor: </span><span id='waterDisp'>0</span>
+          <br></br>
+          <span>Deadly Tractor: </span><span id='ghostDisp'>0</span>
+          <br></br>
+          <span style={{'font-size': '20px'}}>Choose your type: </span>
+          <br></br>
+          <div style={{'width': '100%', 'text-align': 'center', 'margin': 'auto'}}>
+            <div class='btn btn-primary' onClick={() => buildTractor(0)}>
+              Flaming
+            </div>
+            &nbsp;
+            <div class='btn btn-primary' onClick={() => buildTractor(1)}>
+              Wet
+            </div>
+            &nbsp;
+            <div class='btn btn-primary' onClick={() => buildTractor(2)}>
+              Deadly
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='col-md-6'></div>
       <div class='col-md-3' style={{'padding': '10px'}}>
         <div style={{'padding': '10px', 'box-shadow': '0 0 5px black', 'background-color': 'green', 'width': '90%', 'border-radius': '8px'}}>
           <span>Money: </span><span id='money'>100</span>
@@ -394,15 +468,12 @@ const Farm = () => (
 </div>
 */
 
+//.classList.add('spin');
+
 window.setInterval(function() {
-  growth_stage++;
-  if (growth_stage == 5) {
-    try {
-    } catch(err) {
-      //console.log('Uh oh!')
-    }
-  } else {
-  }
+  var i = Math.floor((Math.random() * 25));
+  addCropImg(i, plots[i]);
+  growing[i] = 0;
 }, 1000);
 
 export default Farm;

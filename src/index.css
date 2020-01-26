@@ -51,3 +51,8 @@ div {
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
 }
+
+.spin {
+  transition: 0.5s;
+  transform: rotate(360deg);
+}
