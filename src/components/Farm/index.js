@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import Navigation from '../Navigation';
 import Popup from "reactjs-popup";
+import './oof.css'
 
 var growth_stage = 0;
 var money = 100;
@@ -14,7 +15,7 @@ var numWaterTractors = 100
 var numGhostTractors = 100
 var numEnemiesDefeated = 0
 var currentEnemyHealth = 100
-var enemy0 = {health: 100, damage:10, weakness:"fire", resist:"water", photo: ""};  //carrot
+var enemy0 = {health: 100, damage:1, weakness:"fire", resist:"water", photo: ""};  //carrot
 var enemy1 = {health: 200, damage:7, weakness:"water", resist:"ghost", photo: ""}; //cactus
 var enemy2 = {health: 300, damage:5, weakness:"ghost", resist:"fire", photo: ""};  //dead crop
 var enemy3 = {health: 150, damage:15, weakness:"fire", resist:"water", photo: ""}; //corn
@@ -29,12 +30,27 @@ function updateLabel(label, value) {
 function startBattle(){
   console.log("here");
       playerHealth = 100
-      currentEnemyHealth = enemyArray[numEnemiesDefeated].health
-      document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
+      //currentEnemyHealth = enemyArray[numEnemiesDefeated].health
+      //document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
+}
+
+function updateTractor(){
+  var at = document.getElementById("attackType").value
+  if (at === "default"){
+    document.getElementById("attackType").innerHTML = ""
+  }
+  else if (at === "fire") {
+    document.getElementById("attackType").innerHTML = "Number of Tractors " + numFireTractors
+  }
+  else if (at === "water") {
+    document.getElementById("attackType").innerHTML = "Number of Tractors " + numWaterTractors
+  }
+  else if (at === "ghost") {
+    document.getElementById("attackType").innerHTML = "Number of Tractors " + numGhostTractors
+  }
 }
 
 function attack(attackType) {
-  console.log(currentEnemyHealth);
     if (attackType === "default") {
       currentEnemyHealth -= 5
       document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
@@ -49,7 +65,15 @@ function attack(attackType) {
 
     }
 
+
     if (currentEnemyHealth <= 0){
+      document.getElementById("Fight").hidden = true
+      document.getElementById("win").hidden = false
+      playerHealth = 100
+      numEnemiesDefeated++
+      currentEnemyHealth = enemyArray[numEnemiesDefeated].health
+      document.getElementById("enemyHealth").innerHTML = "Health: " + currentEnemyHealth
+      return
       //you win
       //reset
     }
@@ -59,6 +83,10 @@ function attack(attackType) {
     }
 
     if(playerHealth <= 0){
+      document.getElementById("Fight").hidden = true
+      document.getElementById("lose").hidden = false
+      playerHealth = 100
+      currentEnemyHealth = enemyArray[numEnemiesDefeated].health
       //you lose
     }
 }
@@ -306,7 +334,6 @@ const Farm = () => (
           <Popup
             trigger={<button id="battleSim" class="btn btn-primary">Battle!</button>}
             modal
-            closeOnDocumentClick
           >
           <div>
             <div id="Fight">
@@ -318,7 +345,7 @@ const Farm = () => (
                     <br/>
                     <div class="row">
                       <div class="col-md-4">
-                        <select id="attackType">
+                        <select id="attackType" onChange="updateTractor">
                           <option value="default">Stick Attack</option>
                           <option value="fire">Fire Tractor</option>
                           <option value="water">Water Tractor</option>
@@ -326,27 +353,31 @@ const Farm = () => (
                         </select>
                       </div>
                       <div class="col-md-4">
-                        <p id="numTractors">Number of blank tractors: 40</p>
+                        <p id="numTractors"></p>
                       </div>
                       <div class="col-md-4" onClick={() => attack(document.getElementById("attackType").value)}>
                         <button class="btn btn-danger">Attack!</button>
                       </div>
                     </div>
-                    <br/>
-                    <button class="btn btn-warning">Run!</button>
                 </div>
                 <div class="col-md-6">
-                  <p id="enemyHealth">Health: {(() => {return(enemyArray[numEnemiesDefeated].health)})()}</p>
+                  <p id="enemyHealth">Health: {(() => {
+
+                    return(
+                    enemyArray[numEnemiesDefeated].health
+                  )})()}</p>
                   <img id = "enemyPicture" src="https://vignette.wikia.nocookie.net/cuphead/images/c/c3/Carrot.png/revision/latest?cb=20171028193841"></img>
                 </div>
               </div>
             </div>
-            <div id="win">
-              <h1 hidden="true">You Win :)</h1>
+            <div id="win" hidden="true" align="center">
+              <h1 >You Win :)</h1>
             </div>
-            <div hidden="true" id="lose">
+            <div hidden="true" id="lose" align="center">
               <h1>You Lose :(</h1>
             </div>
+            {(() => {
+              return("")})()}
           </div>
           </Popup>
       </div>
