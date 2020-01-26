@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import Navigation from '../Navigation';
+import './border.css'
 
 var money
 var plots = Array(25).fill(0);
@@ -48,13 +49,16 @@ const Farm = () => (
       </div>
       {/*RIGHT BAR*/}
       <div class='col-md-3' style={{'height': '100vh', 'background-color': 'green'}}>
-        <div class='row' class='round2'>
-            <p>Money: <span id='money'>0</span></p>
-            <p>Engines: <span id='engines'>0</span></p>
-            <p>Tires: <span id='tires'>0</span></p>
-            <p>Steering Mechanisms: <span id='steering'>0</span></p>
-            <p>Transmission Gears: <span id='gears'>0</span></p>
-            <p>Hydraulic Systems: <span id='systems'>0</span></p>
+        <div class='row' class="round2">
+            <p id="gold">Gold:</p>
+            <p id="engine">Engines:</p>
+            <p id="tire">Tires:</p>
+            <p id="steearing">Steering mechanism:</p>
+            <p id="gears">Transmission gears:</p>
+            <p id="hchs">Hyrdraulic control and hitch system:</p>
+            <p id="fire">Fire:</p>
+            <p id="water">Water:</p>
+            <p id="grass">Grass:</p>
         </div>
         <div class='row'>
           <div class='col-md-5'>

@@ -31,9 +31,3 @@ code {
   height: 100%;
   width: 100%;
 }
-
-.round2 {
-  border: 2px solid black;
-  border-radius: 8px;
-  padding: 10px;
-}
